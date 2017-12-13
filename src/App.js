@@ -11,16 +11,17 @@ class App extends Component {
   componentDidMount(){
     this._getMovies();
   }
-
+  
   _renderMovies = () => {
     const movies = this.state.movies.map((movie, index) => {      
-      //console.log(movie);
+      console.log(movie);
       return <Movie 
         title={movie.title_english} 
         poster={movie.medium_cover_image} 
         key={movie.id} 
         genres ={movie.genres}
         synopsis = {movie.synopsis}
+        year = {movie.year}
       />
     })
     return movies;
@@ -40,13 +41,25 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
+  _ChangeList = () =>{
+
+  }
+
   render() {
     const {movies} = this.state;
     return (
       <div className="App">
-        <div className={movies ? "App" : "App--loading"} >
-          {movies ? this._renderMovies() : 'Loading...'}
-        </div>
+
+          <div className={movies ? "App__Change__Button" : "blind"}>
+            <button type="button">button</button>
+            <button type="button">button</button>
+            <button type="button">button</button>
+            <button type="button">button</button>
+          </div>
+
+          <div className={movies ? "App" : "App__loading"} >
+            {movies ? this._renderMovies() : 'Loading...'}
+          </div>
       </div>
     );
   }
