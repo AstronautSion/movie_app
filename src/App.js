@@ -7,9 +7,10 @@ class App extends Component {
   //update: compomentWillReceiveProps()  ->  shouldComponentUpdate()  ->  componentWillUpdate()  ->  render()  ->  componentDidUpdate()
 
   state ={}
-  
+	  
   componentDidMount(){
     this._getMovies();
+	console.log('hi');
   }
   
   _renderMovies = () => {
